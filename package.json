@@ -1,0 +1,23 @@
+{
+  "name": "javascript-refactoring",
+  "version": "1.0.0",
+  "description": "js unit testing and refactoring exerices",
+  "main": "main.js",
+  "dependencies": {
+    "jest": "^24.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikiStojakovic/JavaScript-Refactoring.git"
+  },
+  "author": "Miroslav Stojakovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikiStojakovic/JavaScript-Refactoring/issues"
+  },
+  "homepage": "https://github.com/MikiStojakovic/JavaScript-Refactoring#readme"
+}
