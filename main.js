@@ -43,3 +43,11 @@ function statement (invoice, plays) {
         }
     return thisAmount;
 }
+
+function add(a, b) {
+    return a + b;
+}
+
+module.exports = {
+    add: add,
+}

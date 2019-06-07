@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "command": "node",
+    // "isShellCommand": true,
+    "args": [
+        "--harmony"
+    ],
+
+    "tasks": [
+        {
+            "label": "runFile",
+            // "suppressTaskName": true,
+            // "showOutput": "always",
+            "problemMatcher": "$jshint",
+            "args": ["function.js"]
+        }
+    ]
+}
