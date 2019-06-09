@@ -1,5 +1,4 @@
-[
-    {
+{
     "customer": "BigCo",
         "performances": 
         [
@@ -17,5 +16,3 @@
             }
             ]
     }
-]
-   

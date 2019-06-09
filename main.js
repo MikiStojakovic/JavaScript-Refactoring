@@ -1,3 +1,5 @@
+
+
 function statement (invoice, plays) {
     let totalAmount = 0;
     let volumeCredits = 0;
@@ -50,4 +52,5 @@ function add(a, b) {
 
 module.exports = {
     add: add,
+    statement: statement,
 }
