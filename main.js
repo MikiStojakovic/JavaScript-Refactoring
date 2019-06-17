@@ -1,22 +1,28 @@
 
+var invoiceCollection = require('./invoices.json');
+var playsCollection = require('./plays.json');
+
+function testStatement(){
+    return statement(invoiceCollection, playsCollection);
+}
 
 function statement (invoice, plays) {
     let totalAmount = 0;
     let volumeCredits = 0;
     let result = `Statement for ${invoice.customer}\n`;
+    var plays = plays;
     const format = new Intl.NumberFormat("en-US",
     { style: "currency", currency: "USD",
     minimumFractionDigits: 2 }).format;
 
     for (let perf of invoice.performances) {
-        const play = playFor(perf);
-        let thisAmount = amountFor(perf, play);
+        let thisAmount = amountFor(perf, playFor(perf));
        // add volume credits
  volumeCredits += Math.max(perf.audience - 30, 0);
  // add extra credit for every ten comedy attendees
- if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
+ if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
  // print line for this order
- result += ` ${play.name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
+ result += ` ${playFor(perf).name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
  totalAmount += thisAmount;
  }
  result += `Amount owed is ${format(totalAmount/100)}\n`;
@@ -47,7 +53,7 @@ function statement (invoice, plays) {
 }
 
 function playFor(aPerformance) {
-    return plays[aPerformance.playID];
+    return playsCollection[aPerformance.playID];
     }
    
 
@@ -59,4 +65,5 @@ function playFor(aPerformance) {
 module.exports = {
     // add: add,
     statement: statement,
+    testStatement: testStatement,
 }
