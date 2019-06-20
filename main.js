@@ -7,18 +7,27 @@ function testStatement(){
 }
 
 function statement (invoice, plays) {        
-    let result = `Statement for ${invoice.customer}\n`;
+    let result = `Statement for ${invoice.customer}\n`;    
 
-    let totalAmount = 0;
-    for (let perf of invoice.performances) {
+    for (let perf of invoiceCollection.performances) {
         // print line for this order
         result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
+    }
+
+    result += `Amount owed is ${usd(totalAmount())}\n`;
+    result += `You earned ${totalVolumeCredits()} credits\n`;
+    return result;
+ }
+
+ function totalAmount()
+ {
+    let totalAmount = 0;
+    for (let perf of invoiceCollection.performances) {
+        // print line for this order
         totalAmount += amountFor(perf);
     }
 
-    result += `Amount owed is ${usd(totalAmount)}\n`;
-    result += `You earned ${totalVolumeCredits()} credits\n`;
-    return result;
+    return totalAmount;
  }
 
  function totalVolumeCredits() {
