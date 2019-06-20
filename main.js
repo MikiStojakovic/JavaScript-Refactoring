@@ -23,7 +23,7 @@ function statement (invoice, plays) {
 
  function totalVolumeCredits() {
     let volumeCredits = 0;
-    for (let perf of invoice.performances) {       
+    for (let perf of invoiceCollection.performances) {       
         volumeCredits += volumeCreditsFor(perf);
     }
 
