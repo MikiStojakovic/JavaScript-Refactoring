@@ -37,7 +37,7 @@ function statement (invoice, plays) {
 
         function totalVolumeCredits() {
             let result = 0;
-            for (let perf of invoiceCollection.performances) {       
+            for (let perf of data.performances) {       
                 result += volumeCreditsFor(perf);
             }
         
@@ -47,7 +47,7 @@ function statement (invoice, plays) {
          function volumeCreditsFor(aPerformance) {
              let result = 0;
              result += Math.max(aPerformance.audience - 30, 0);
-             if ("comedy" === playFor(aPerformance).type) 
+             if ("comedy" === aPerformance.play.type) 
                 result += Math.floor(aPerformance.audience / 5);
         
              return result;   
