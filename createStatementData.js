@@ -40,7 +40,7 @@ function createStatementData(invoice, plays){
         const caluculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
         const result = Object.assign({}, aPerformance);
         result.play = caluculator.play;
-        result.amount = amountFor(result);
+        result.amount = caluculator.amount;
         result.volumeCredits = volumeCreditsFor(result);
         return result;
     }
