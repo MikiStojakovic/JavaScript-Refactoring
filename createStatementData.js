@@ -8,7 +8,7 @@ class PerformanceCalculator {
         let result = 0;
                switch (this.play.type) {
                case "tragedy":
-               result = 40000;
+                    throw 'bad thing';
                if (this.performance.audience > 30) {
                    result += 1000 * (this.performance.audience - 30);
                }
@@ -36,6 +36,53 @@ class PerformanceCalculator {
     } 
 }
 
+class TragedyCalculator extends PerformanceCalculator {    
+    constructor(aPerformance, aPlay){
+        super();
+        this.performance = aPerformance;
+        this.play = aPlay;
+    }
+
+    get amount() {
+        let result = 40000;
+
+        if (this.performance.audience > 30) {
+            result += 1000 * (this.performance.audience - 30)
+        }
+
+        return result;
+    }
+}
+
+class ComedyCalculator extends PerformanceCalculator {
+    constructor(aPerformance, aPlay){
+        super();
+        this.performance = aPerformance;
+        this.play = aPlay;
+    }
+
+    get amount() {
+        let result = 30000;
+
+        if (this.performance.audience > 20) {
+            result += 10000 + 500 * (this.performance.audience - 20);
+        }
+
+        result += 300 * this.performance.audience;
+        return result;
+    }
+}
+
+function createPerformanceCalculator(aPerformance, aPlay) {
+    switch(aPlay.type){
+        case "tragedy": return new TragedyCalculator(aPerformance, aPlay);
+        case "comedy": return new ComedyCalculator(aPerformance, aPlay);
+        default:
+            throw new Error(`unknown type: ${aPlay.type}`);
+    }
+    return new PerformanceCalculator(aPerformance, aPlay);
+}
+
 function createStatementData(invoice, plays){
     const statementData = {};
     statementData.customer = invoice.customer;
@@ -46,7 +93,7 @@ function createStatementData(invoice, plays){
     return statementData;   
     
     function enrichPerformance(aPerformance) {
-        const caluculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+        const caluculator = new createPerformanceCalculator(aPerformance, playFor(aPerformance));
         const result = Object.assign({}, aPerformance);
         result.play = caluculator.play;
         result.amount = caluculator.amount;
