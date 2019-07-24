@@ -1,23 +1,36 @@
 {
   "name": "javascript-refactoring",
   "version": "1.0.0",
-  "description": "js unit testing and refactoring exerices",
-  "main": "main.js",
-  "dependencies": {
-    "jest": "^24.8.0"
-  },
-  "devDependencies": {},
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MikiStojakovic/JavaScript-Refactoring.git"
   },
-  "author": "Miroslav Stojakovic",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MikiStojakovic/JavaScript-Refactoring/issues"
   },
-  "homepage": "https://github.com/MikiStojakovic/JavaScript-Refactoring#readme"
+  "homepage": "https://github.com/MikiStojakovic/JavaScript-Refactoring#readme",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  },
+  "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "babel-polyfill": "^6.26.0",
+    "jest": "^24.8.0"
+  },
+  "jest": {
+    "testRegex": "src/.*\\.test\\.(js|jsx)$",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  }
 }
