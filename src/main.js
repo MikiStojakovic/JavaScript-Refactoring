@@ -3,7 +3,7 @@ var invoiceCollection = require('./invoices.json');
 var playsCollection = require('./plays.json');
 var createStatementData = require('./createStatementData.js').createStatementData;
 
-function testStatement(){
+export function testStatement(){
     return statement(invoiceCollection, playsCollection);
 }
 
@@ -56,8 +56,8 @@ function renderHtml(){
 //     return a + b;
 // }
 
-module.exports = {
-    // add: add,
-    statement: statement,
-    testStatement: testStatement,
-}
+// module.exports = {
+//     // add: add,
+//     statement: statement,
+//     testStatement: testStatement,
+// }

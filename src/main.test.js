@@ -1,5 +1,6 @@
-var add = require('./main.js').add;
-var testStatement = require('./main.js').testStatement;
+// var add = require('./main.js').add;
+import { testStatement } from './main.js';
+// var testStatement = require('./main.js').testStatement;
 
 // test('Adding 1 + 1 equals 2', () => {
 //     expect(add(1, 1)).toBe(2)
