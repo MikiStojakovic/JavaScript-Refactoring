@@ -34,3 +34,15 @@
          expect(noProducers.profit).toBe(0);
      })
  })
+
+ describe('province', function(){
+     let asia;
+     beforeEach(function() {
+         asia = new Province(sampleProvinceData());
+     })
+     it('zero demand', function(){
+         asia.demand = 0;
+         expect(asia.shortfall).toBe(-25);
+         expect(asia.profit).toBe(0);
+     })
+ })
