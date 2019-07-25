@@ -1,4 +1,4 @@
-class Province {
+class Producer {
 
     constructor(aProvince, data) {
         this._province = aProvince;
@@ -19,3 +19,5 @@ class Province {
         this._production = newProduction;
     }
 }
+
+export { Producer };

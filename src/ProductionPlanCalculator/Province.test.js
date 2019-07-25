@@ -1,7 +1,8 @@
  import { sampleProvinceData, Province } from './Province.js';
 
-test('province shortfall', () => {
-    var result = sampleProvinceData();
-    //var pr = new Province({});
-    expect(result.name).toBe("Asia");
-})
+ describe('province shortfall', function() {
+     it('shortfall', function(){
+         const asia = new Province(sampleProvinceData());
+         expect(asia.shortfall).toBe(5);
+     })
+ })
